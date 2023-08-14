@@ -1,0 +1,102 @@
+Our project is to help build a portfolio of Australian stocks that is able to weather black swan events.  We will example relationships how Australian sectors performed through the Covid Pandemic and Ukraine War, and find the best performing portfolio to weather these events.  Based on our analysis we will show which secto ofrs outperform benchmarks (**Choose benchmark**).
+We will also use a keyword or sentiment analysis to analyse which sectors may have been oversold from the bottom to suggest investments during a black swan event.
+What happened during times of stability.
+
+
+MINIMUM VIABLE PRODUCT
+
+WHAT HAPPENED DURING MARCH 2020
+
+DEFINE 
+SECTOR BY SECTOR
+
+
+CURRENT STEPS
+
+FUTURE STEPS
+
+ROADMAP LINED UP
+
+ANNA:
+NATE SAID BEFORE LIBRARIES
+
+Panda libraries
+Prophet
+https://github.com/facebook/prophet
+https://facebook.github.io/prophet/docs/quick_start.html
+https://machinelearningmastery.com/time-series-forecasting-with-prophet-in-python/
+
+
+
+
+Define:
+Black Swan Events (or shocks)
+
+
+
+DATA NEEDED:
+ASX data (daily closes) [depends on API limits]
+List of shocks
+Looking at the previous five years.
+https://pypi.org/project/yfinance/ yahoo finance python package
+
+
+
+SENTIMENT ANALYSIS
+
+Google trends
+https://www.tweepy.org/  tweeter sentiment analysis python libraries
+
+Black Swan Events
+https://forextraininggroup.com/6-black-swan-events-that-rocked-the-financial-markets/
+
+
+
+
+
+Next steps
+Anna: Data analysis
+
+Stock market APIs:
+https://www.alphavantage.co/documentation/
+https://www.iexexchange.io/products/market-data-connectivity
+https://twelvedata.com/docs/#getting-started
+
+
+
+
+
+
+
+
+
+
+
+
+
+Performance of each sector - volatility, evaluate which were best and worst performing before, during and after each ‘black swan’ event. 
+Provide investment advice based on this analysis^^^^
+
+
+
+Energy - XEJ
+Materials - XMJ
+Industrials - XNJ
+Consumer Discretionary - XDJ
+Consumer Staples - XSJ
+Health Care - XHJ
+Financials - XFJ
+Information Technology - XIJ
+Communication Services - XTJ
+Utilities - XUJ
+Real Estate - XPJ
+What market sectors perform best and worst in times of increased ecomnomic volatility?
+Do sectors perform well in conflicts perform well in pandemics?
+What investment advice can be prescribed to prepare for this if it happens again?
+A sentiment analysis suggest what? (TBC)
+
+
+
+
+
+

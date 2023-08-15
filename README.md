@@ -19,6 +19,8 @@ This project focuses on studying the performance of ASX sectors in response to m
 ## Features
 - Collect historical data on ASX sector performance using APIs.
 - Analyze and clean the collected data to ensure accuracy.
+- Correlation analysis to determine the impact of economic surges on sectors.
+- Volatility Analysis to discover risk of sectors. 
 - Utilize sentiment analysis to gauge market sentiment during various events.
 - Use the Prophet library to make projections for sector performance.
 - Visualize and present findings to highlight sector performance variations.

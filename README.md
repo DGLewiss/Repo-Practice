@@ -25,11 +25,33 @@ This project focuses on studying the performance of ASX sectors in response to m
 - Use the Prophet library to make projections for sector performance.
 - Visualize and present findings to highlight sector performance variations.
 
-## Installation
-Provide instructions for setting up the project environment, installing dependencies, and getting started. For example:
+# Installation - Pytrends
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
-2. Install required packages: `pip install -r requirements.txt`
+This guideline is created to provide support with the installation of new packages and/ or files required to utilise the Project 1 code. 
+
+## Requirements
+* Python version 3.3+ 
+* Requires Requests, lxml, Pandas
+
+—
+
+## Install 
+ * Open a new terminal window
+	‘’’shell 
+	pip install pytrends
+	‘’’
+* Connect to Google	
+	‘’’’shell
+	from pytrends.request import TrendReq
+	pytrends = TrendReq(hl = ‘en-US’, tz=360)
+	‘’’
+—
+ # Installation - Prophet
+
+Propet is on PyPI so you can use pip to install 
+```shell 
+Python -m pip install prophet
+```
 
 ## Usage
 Explain how to use the project:

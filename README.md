@@ -58,7 +58,56 @@ To execute the analysis an API from Yfinance was implemented to return the daily
 The Pytrends library requires calibration before it can be utilised, first, we define the time zone and language we require our analysis to be conducted. Following this, an individual term will be searched for across all geographic regions. The result is a pandas DataFrame which displays the usage of the searched term from 0 to 100 across the assessed period, five years for our analysis.  
 
 ## Data Analysis
-Explain the data analysis process, including how you assess the data's quality, clean it, and prepare it for analysis.
+###### Importing Libraries
+The notebook begins by importing the required libraries to complete the analysis. Libraries include data manipulation packages such as pandas and visualisation packages such as matplotlib. New packages in this model are Prophet and pytrends which are specialised packages for modelling and sentiment analysis. 
+
+###### Defining Sectors and Date Range
+A dictionary is defined as 'sectors' and each sector name is the key with corresponding ticker symbols as values. The date range is defined as 'start_date' and 'end_date' which has five years inbetween.
+
+###### Downloading Financial Date
+The scripts will download financial data for the defined sectors. This is completed through the yfinance library. The data is downloaded for the defined period of five yeats and store in the 'data' DataFrame.
+
+###### Extracting Close data
+The 'Close' prices for all tickets is pulled from downloaded data in the 'close_data' DataFrame.
+
+###### Calculating Returns
+Daily returns are calculated by applying the percentage change into the 'Close' prices column using the 'pct_change()' function. A cumulative product of (1 + daily returns) is calculated to simulate the portfolio's performance, and the final values are sorted.
+
+###### Portfolio Selection and Weights
+The top performing sectors are allocated into an investment portfolio, the initial investment value and weights are assigned to each sector.
+
+###### Cleaning the Data
+Null values in the daily returns DataFrame are dropped using the .dropna() method to create the 'final_returns_df'.
+
+###### Data Preperation for Prophet
+The final returns DataFrame is used to calculate the portfolios cumulative returns and input into the Prophet forecasting model. Reset the DataFrames index and column names are adjusted to meet the requirements of Prophet.
+
+###### Resampling Data 
+The portfolios returns are resampled to weekly frequency so it is compatable with the sentiment analysis
+
+###### Identifying Shocks (Events)
+Dates of significance that had been pre-identified have been created into a DataFrame for the Prophet model.
+
+###### Prophet Model
+The Prophet model is initialized with the identified events as holidays. The model is fitted to the historical portfolio returns data.
+
+###### Generating Forecasts
+The Prophet model is used to generate forecasts for a future time period.
+
+###### Sentiment Analysis with pytrends
+The pytrends libabry is utilised to assess the online search interest in keyterms "CORONA" and "UKRAINE"
+
+###### Handling Sentiment Data
+Any data that contained a '0' has been converted to a '1' to eliminate division by zero errors. 
+
+###### Calculating Sentiment Change
+Percentage Change of the Sentiment data is calculated with the '.pct_change()' function.
+
+###### Combining the Sentiment and Portfolio data
+the sentiment and portfolio data is combined into one DataFrame in preperation for correlation analysis. This has to be completed to analyse the correlation of market returns and key term interest. 
+
+###### Correlation Calculations
+The correlation between sentiment changes and market returns is calculated using the .corr() method.
 
 ## Projections
 The prophet library is incorporated to extrapolate market closes from the custom portfolio of the best-performing ASX Sectors. The Prophet library completes time series forecasting by identifying trends, seasonality and modelling. By preparing the sectors into a single returns DataFrame we can capitalise on the seasonality components pre-incorporated into the prophet model. Future insights are generated from the model, providing insight into the anticipated performance of the portfolio. Within the plot we extrapolate one year into the future with a shock occuring on 11/03/2020 to represent the CORONA pandemic announcement Additionally, another shock was incorporated on 24/02/2022 for the invasion of Russian forces into the Ukraine. 

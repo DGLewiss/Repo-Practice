@@ -1,10 +1,9 @@
 # ASX Sector Performance Analysis
 
-Analyze the performance of ASX sectors during periods of volatility over the last five years. This project aims to provide investment insights on how different sectors perform during times of global pandemic, conflicts, and periods of low volatility.
+This README has been created to define our project scope and overview of the data analysis project. Exploring the problem, questions, datasources and goals. 
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Data Collection](#data-collection)
@@ -14,34 +13,49 @@ Analyze the performance of ASX sectors during periods of volatility over the las
 - [License](#license)
 
 ## Introduction
-This project focuses on studying the performance of ASX sectors in response to macroeconomic events such as global pandemics and conflicts, compared to periods of lower volatility. The end goal is to provide investment advice and insights to help investment advisors make informed decisions.
 
-## Features
-- Collect historical data on ASX sector performance using APIs.
-- Analyze and clean the collected data to ensure accuracy.
-- Correlation analysis to determine the impact of economic surges on sectors.
-- Volatility Analysis to discover risk of sectors. 
-- Utilize sentiment analysis to gauge market sentiment during various events.
-- Use the Prophet library to make projections for sector performance.
-- Visualize and present findings to highlight sector performance variations.
+Our data analysis project has been created to assess the performance of ASX sectors during times of economic turmoil, pandemics and conflicts specifcally. We have encorporated data from both APIs with yfinance and Python libraries to develop a dataframe of historic ASX prices and identify key terms on google. Through this analysis we identify the best performing sectors on the ASX between 2018 and 2023. With this finding a portfolio of the best four sectors is created. The relation between market returns and  terms 'CORONA' and 'UKRAINE' is assessed.
 
-## Installation
-Provide instructions for setting up the project environment, installing dependencies, and getting started. For example:
+___
+# Installation 
+### Installation - Pytrends
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
-2. Install required packages: `pip install -r requirements.txt`
+This guideline is created to provide support with the installation of new packages and/ or files required to utilise the Project 1 code. 
 
+### Requirements
+* Python version 3.3+ 
+* Requires Requests, lxml, Pandas
+
+### Install 
+ * Open a new terminal window
+	```shell 
+	pip install pytrends
+	```
+* Connect to Google	
+    ```shell
+	from pytrends.request import TrendReq
+	```
+	```
+	pytrends = TrendReq(hl = ‘en-US’, tz=360)
+	```
+	
+### Installation - Prophet
+
+Propet is on PyPI so you can use pip to install 
+```shell 
+Python -m pip install prophet
+```
+___
 ## Usage
-Explain how to use the project:
 
-1. Collect data using APIs: `python data_collection.py`
-2. Analyze and clean data: `python data_analysis.py`
-3. Perform sentiment analysis: `python sentiment_analysis.py`
-4. Make projections using Prophet: `python projections.py`
-5. Visualize results: `python visualize_results.py`
+1. Complete the Installation instructions
+2. Open notesbook/project_one_final using jupyter notebook
+3. Run the notebook
 
 ## Data Collection
-Describe how data is collected from APIs (in your case, yfinance). Explain the data fields you're collecting and any potential challenges or considerations.
+To execute the analysis an API from Yfinance was impleneted to return the daily close price of all 11 sectors from the ASX. The data is pulled from the API as a table in daily intervals. For our analysis it is pulled for the timeframe July 2018 to June 2023 and only the 'close' data.  
+
+The pytrends library requires calibration before it can be utilised, first we define the time zone and language we require our analysis to be conducted on. Following this an individual term will be searched for across all geographic regions. The result is a pandas DataFrame which displays the usage of the searched term from 0 to 100 across the assessed period, five years for our analysis.  
 
 ## Data Analysis
 Explain the data analysis process, including how you assess the data's quality, clean it, and prepare it for analysis.
